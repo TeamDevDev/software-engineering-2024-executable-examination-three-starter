@@ -195,7 +195,7 @@ def check_multiple_string_equality(
 
 def generate_fuzzer_values(
     max_length: int = 100, char_start: int = 32, char_range: int = 32
-) -> str:
+):
     string_length = random.randrange(0, max_length)
     out = ""
     for _ in range(0, string_length):
