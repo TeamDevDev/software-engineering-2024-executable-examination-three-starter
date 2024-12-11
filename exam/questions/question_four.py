@@ -150,7 +150,7 @@ def determine_looks_good_to_merge_human_approval(module):
 # 1. The unique identifier of the function.
 # 2. The name of the function.
 # 3. The cyclomatic complexity of the function.
-# TODO that the elements of the tuple will always appear in the order that they
+# Note that the elements of the tuple will always appear in the order that they
 # appear in the above listing of values.
 
 # TODO: These functions may not have all of the correct type annotations for
@@ -191,7 +191,7 @@ def calculate_maximum_cyclomatic_complexity(functions):
 # 1. The unique identifier of the function.
 # 2. The name of the function.
 # 3. The cyclomatic complexity of the function.
-# TODO that the elements of the tuple will always appear in the order that they
+# Note that the elements of the tuple will always appear in the order that they
 # appear in the above listing of values.
 
 # TODO: This function may not not have all of the correct type annotations for
