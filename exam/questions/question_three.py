@@ -1,6 +1,6 @@
 """Question Three: Executable Examination."""
 
-# Note: The imports in the following source code block may no longer
+# TODO: The imports in the following source code block may no longer
 # adhere to the industry best practices for Python source code.
 # You must reorganize and/or add the imports so that they adhere
 # to the industry best practices for Python source code.
@@ -51,53 +51,36 @@ from questions import constants
 # --> The equals function should be able to confirm that the original version of
 # the string is not the same as the mutated version of the string.
 
-# Note: Calling equals("Hello", mutate("Hello")) should return False because the
+# TODO: Calling equals("Hello", mutate("Hello")) should return False because the
 # mutated version of the string "Hello" is not the same as the original string
-# itself. Note that when the equals function receives an input string and the
+# itself. TODO that when the equals function receives an input string and the
 # mutated version of the same input string it should always return False because
 # the mutated version of the input string is not the same as the original.
 
-# Note: These functions may not not have all of the correct type annotations for
+# TODO: These functions may not not have all of the correct type annotations for
 # certain variables. You must add all of any needed type annotations so that the
 # function and any code that uses it passes the type checker.
 
-# Note: These functions may not have a docstring and thus it may not adhere to
+# TODO: These functions may not have a docstring and thus it may not adhere to
 # industry best practices for Python source code. You may need to add a
 # docstring so that this function is correctly documented by an software
 # engineer using it.
 
 
-def delete_random_character(s: str) -> str:
-    """Return the input string with a random character deleted."""
-    if s == constants.fuzzing.Empty_String:
-        return s
-    pos = random.randint(0, len(s) - 1)
-    return s[:pos] + s[pos + 1 :]
+def delete_random_character(s):
+    return s
 
 
-def insert_random_character(s: str) -> str:
-    """Return the input string with a random character inserted."""
-    pos = random.randint(0, len(s))
-    random_character = chr(random.randrange(32, 127))
-    return s[:pos] + random_character + s[pos:]
+def insert_random_character(s):
+    return s
 
 
-def flip_random_character(s: str) -> str:
-    """Return the input string with a random bit flipped in a random position."""
-    if s == constants.fuzzing.Empty_String:
-        return s
-    pos = random.randint(0, len(s) - 1)
-    c = s[pos]
-    bit = 1 << random.randint(0, 6)
-    new_c = chr(ord(c) ^ bit)
-    return s[:pos] + new_c + s[pos + 1 :]
+def flip_random_character(s):
+    return s
 
 
-def mutate(s: str) -> str:
-    """Return the input string with a random mutation applied."""
-    mutators = [delete_random_character, insert_random_character, flip_random_character]
-    mutator = random.choice(mutators)
-    return mutator(s)
+def mutate(s):
+    return s
 
 
 # }}}
@@ -116,11 +99,11 @@ def mutate(s: str) -> str:
 # string. Calling equals_for_mutation("Hello", mutate("Hello")) should return
 # False because the mutated version of the string "Hello" is not the same as the
 # original string itself for any possible mutation operator defined in this
-# file. Note that when the equals function receives an input string and the
+# file. TODO that when the equals function receives an input string and the
 # mutated version of the same input string it should always return False because
 # the mutated version of the input string is not the same as the original.
 
-# Note: This function may be tested in conjunction with the functions that you
+# TODO: This function may be tested in conjunction with the functions that you
 # implemented as a previous part of this question.
 
 # --> The check_multiple_equals_for_mutation function should accept a list of
@@ -129,46 +112,23 @@ def mutate(s: str) -> str:
 # and a boolean indicating whether or not the strings are equal according to
 # the other function that you implemented for this question part.
 
-# Note: These functions may not not have all of the correct type annotations for
+# TODO: These functions may not not have all of the correct type annotations for
 # certain variables. You must add all of any needed type annotations so that the
 # function and any code that uses it passes the type checker.
 
-# Note: These functions may not have a docstring and thus it may not adhere to
+# TODO: These functions may not have a docstring and thus it may not adhere to
 # industry best practices for Python source code. You may need to add a
 # docstring so that this function is correctly documented by an software
 # engineer using it.
 
-
-def equals_for_mutation(one: str, two: str) -> bool:
-    """Determine whether or not two input strings are equal."""
-    if len(one) != len(two):
-        return False
-    for i in range(0, len(one)):
-        if one[i] != two[i]:
-            return False
+def equals_for_mutation(one, two):
     return True
 
 
-def check_multiple_equals_for_mutation(
-    values: List[Tuple[str, str]],
-) -> List[Tuple[str, str, bool]]:
-    """Check equality of each string in the list with the comparison string."""
+def check_multiple_equals_for_mutation(values):
     # create the list to store the results
-    results: List[Tuple[str, str, bool]] = []
-    # iterate over the values
-    # and perform the necessary checks
-    for value in values:
-        # extract the two strings
-        one, two = value
-        # determine if the two strings are equal
-        # and store the appropriate result
-        if equals_for_mutation(one, two):
-            results.append((one, two, True))
-        else:
-            results.append((one, two, False))
-    # return the results of the multiple equals checks
+    results = []
     return results
-
 
 # }}}
 
@@ -186,11 +146,11 @@ def check_multiple_equals_for_mutation(
 # --> The function should use the equals_for_mutation function to compare the
 # strings that are in the input list to the comparison string.
 
-# Note: This function may not have all of the correct type annotations for
+# TODO: This function may not have all of the correct type annotations for
 # certain variables. You must add all of any needed type annotations so that the
 # function and any code that uses it passes the type checker.
 
-# Note: This function may not have a docstring and thus it may not adhere to
+# TODO: This function may not have a docstring and thus it may not adhere to
 # industry best practices for Python source code. You may need to add a
 # docstring so that this function is correctly documented by a software
 # engineer using it.
@@ -201,8 +161,6 @@ def check_multiple_string_equality(
 ) -> Dict[str, bool]:
     """Check equality of each string in the list with the comparison string."""
     equality_dict = {}
-    for s in input_strings:
-        equality_dict[s] = equals_for_mutation(s, comparison_string)
     return equality_dict
 
 
@@ -226,11 +184,11 @@ def check_multiple_string_equality(
 #    - symbols like spaces or dollar signs or percent signs
 #    - numbers like 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
 
-# Note: This function may not not have all of the correct type annotations for
+# TODO: This function may not not have all of the correct type annotations for
 # certain variables. You must add all of any needed type annotations
 # so that the function and any code that uses it passes the type checker.
 
-# Note: This function may not have a docstring and thus it may not adhere
+# TODO: This function may not have a docstring and thus it may not adhere
 # to industry best practices for Python source code. You may need to add a docstring
 # so that this function is correctly documented by an software engineer using it.
 
@@ -238,11 +196,10 @@ def check_multiple_string_equality(
 def generate_fuzzer_values(
     max_length: int = 100, char_start: int = 32, char_range: int = 32
 ) -> str:
-    """Make string of up to max_length characters in the range [char_start, char_start + char_range)."""
-    string_length = random.randrange(0, max_length + 1)
+    string_length = random.randrange(0, max_length)
     out = ""
     for _ in range(0, string_length):
-        out += chr(random.randrange(char_start, char_start + char_range))
+        out += chr(random.randrange(char_start, char_start - char_range))
     return out
 
 
