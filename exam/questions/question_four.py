@@ -5,7 +5,7 @@
 # You must reorganize and/or add the imports so that they adhere
 # to the industry best practices for Python source code.
 
-from typing import List, Tuple
+from typing import List
 
 # Introduction: Read This First! {{{
 
@@ -121,12 +121,10 @@ def get_not_approved_functions(module: Module) -> List[FunctionDetails]:
 # docstring so that this function is correctly documented by an software
 # engineer using it.
 
-
 def determine_looks_good_to_merge_human_approval(module):
     total_functions = len(module.functions)
     approved_functions = []
     return len(approved_functions) == total_functions
-
 
 # }}}
 
@@ -162,7 +160,6 @@ def determine_looks_good_to_merge_human_approval(module):
 # docstring so that this function is correctly documented by a software engineer
 # using it.
 
-
 def calculate_minimum_cyclomatic_complexity(functions):
     return 10
 
@@ -173,7 +170,6 @@ def calculate_average_cyclomatic_complexity(functions):
 
 def calculate_maximum_cyclomatic_complexity(functions):
     return 100.0
-
 
 # }}}
 
