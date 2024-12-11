@@ -1,6 +1,6 @@
 """Question Four: Executable Examination."""
 
-# Note: The imports in the following source code block may no longer
+# TODO: The imports in the following source code block may no longer
 # adhere to the industry best practices for Python source code.
 # You must reorganize and/or add the imports so that they adhere
 # to the industry best practices for Python source code.
@@ -36,11 +36,11 @@ from typing import List, Tuple
 # get_not_approved_functions that takes a Module instance as an argument and
 # returns a list of functions that are not approved.
 
-# Note: These function(s) may not not have all of the correct type annotations for
+# TODO: These function(s) may not not have all of the correct type annotations for
 # certain variables. You must add all of any needed type annotations so that the
 # function and any code that uses it passes the type checker.
 
-# Note: These function(s) may not have a docstring and thus it may not adhere to
+# TODO: These function(s) may not have a docstring and thus it may not adhere to
 # industry best practices for Python source code. You may need to add a
 # docstring so that this function is correctly documented by an software
 # engineer using it.
@@ -96,13 +96,11 @@ class Module:
 
 
 def get_approved_functions(module: Module) -> List[FunctionDetails]:
-    """Get the list of approved functions from a module."""
-    return [function for function in module.functions if function.approved]
+    return []
 
 
 def get_not_approved_functions(module: Module) -> List[FunctionDetails]:
-    """Get the list of approved functions from a module."""
-    return [function for function in module.functions if not function.approved]
+    return []
 
 
 # }}}
@@ -114,23 +112,19 @@ def get_not_approved_functions(module: Module) -> List[FunctionDetails]:
 # whether the module looks good to merge. A module is considered "good to merge"
 # if all of the functions in the module are approved.
 
-# Note: These function(s) may not not have all of the correct type annotations for
+# TODO: These function(s) may not not have all of the correct type annotations for
 # certain variables. You must add all of any needed type annotations so that the
 # function and any code that uses it passes the type checker.
 
-# Note: These function(s) may not have a docstring and thus it may not adhere to
+# TODO: These function(s) may not have a docstring and thus it may not adhere to
 # industry best practices for Python source code. You may need to add a
 # docstring so that this function is correctly documented by an software
 # engineer using it.
 
 
-def determine_looks_good_to_merge_human_approval(module: Module) -> bool:
-    """Determine if the module looks good to merge."""
-    # determine the total number of functions inside of the module
+def determine_looks_good_to_merge_human_approval(module):
     total_functions = len(module.functions)
-    approved_functions = get_approved_functions(module)
-    # confirm that the module is ready to be merged if
-    # all of the functions in the module are approved
+    approved_functions = []
     return len(approved_functions) == total_functions
 
 
@@ -151,50 +145,34 @@ def determine_looks_good_to_merge_human_approval(module: Module) -> bool:
 # of function details as an argument and return the maximum cyclomatic complexity
 # of the functions in the list.
 
-# Note: All of the aforementioned functions should accept as input a list of
+# TODO: All of the aforementioned functions should accept as input a list of
 # tuples where the components of the tuple are as follows:
 # 1. The unique identifier of the function.
 # 2. The name of the function.
 # 3. The cyclomatic complexity of the function.
-# Note that the elements of the tuple will always appear in the order that they
+# TODO that the elements of the tuple will always appear in the order that they
 # appear in the above listing of values.
 
-# Note: These functions may not have all of the correct type annotations for
+# TODO: These functions may not have all of the correct type annotations for
 # certain variables. You must add all of any needed type annotations so that the
 # function and any code that uses it passes the type checker.
 
-# Note: These functions may not have a docstring and thus it may not adhere to
+# TODO: These functions may not have a docstring and thus it may not adhere to
 # industry best practices for Python source code. You may need to add a
 # docstring so that this function is correctly documented by a software engineer
 # using it.
 
 
-def calculate_minimum_cyclomatic_complexity(
-    functions: List[Tuple[int, str, int]],
-) -> int:
-    """Calculate the minimum cyclomatic complexity for a list of Python functions."""
-    if not functions:
-        raise ValueError("The list of functions is empty")
-    return min(function[2] for function in functions)
+def calculate_minimum_cyclomatic_complexity(functions):
+    return 10
 
 
-def calculate_average_cyclomatic_complexity(
-    functions: List[Tuple[int, str, int]],
-) -> float:
-    """Calculate the average cyclomatic complexity for a list of Python functions."""
-    if not functions:
-        raise ValueError("The list of functions is empty")
-    total_complexity = sum(function[2] for function in functions)
-    return total_complexity / len(functions)
+def calculate_average_cyclomatic_complexity(functions):
+    return 10.0
 
 
-def calculate_maximum_cyclomatic_complexity(
-    functions: List[Tuple[int, str, int]],
-) -> int:
-    """Calculate the maximum cyclomatic complexity for a list of Python functions."""
-    if not functions:
-        raise ValueError("The list of functions is empty")
-    return max(function[2] for function in functions)
+def calculate_maximum_cyclomatic_complexity(functions):
+    return 100.0
 
 
 # }}}
@@ -208,30 +186,27 @@ def calculate_maximum_cyclomatic_complexity(
 # functions have a cyclomatic complexity value that is strictly less than the
 # specified threshold and return False otherwise.
 
-# Note: The aforementioned function should accept as input a list of
+# TODO: The aforementioned function should accept as input a list of
 # tuples where the components of the tuple are as follows:
 # 1. The unique identifier of the function.
 # 2. The name of the function.
 # 3. The cyclomatic complexity of the function.
-# Note that the elements of the tuple will always appear in the order that they
+# TODO that the elements of the tuple will always appear in the order that they
 # appear in the above listing of values.
 
-# Note: This function may not not have all of the correct type annotations for
+# TODO: This function may not not have all of the correct type annotations for
 # certain variables. You must add all of any needed type annotations
 # so that the function and any code that uses it passes the type checker.
 
-# Note: This function may not have a docstring and thus it may not adhere
+# TODO: This function may not have a docstring and thus it may not adhere
 # to industry best practices for Python source code. You may need to add a docstring
 # so that this function is correctly documented by an software engineer using it.
 
 
-def determine_looks_good_to_merge_cyclomatic_complexity(
-    functions: List[Tuple[int, str, int]], threshold: int
-) -> bool:
-    """Check if all functions have a cyclomatic complexity below the specified threshold."""
-    if not functions:
-        raise ValueError("The list of functions is empty")
-    return all(function[2] < threshold for function in functions)
+def determine_looks_good_to_merge_cyclomatic_complexity(functions, threshold):
+    # this is like the person who approves every pull
+    # request without carefully looking at the complexity of the code!
+    return True
 
 
 # }}}
